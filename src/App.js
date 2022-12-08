@@ -11,9 +11,9 @@ const analytics = Analytics({
   plugins: [
     {
       name: "test-plugin",
-      track: async ({ payload }) => {
-        console.log(payload)
-        await sendMessage(payload);
+      track: ({ payload }) => {
+        console.log(payload);
+        sendMessage(payload);
       },
     },
     perfumePlugin({
