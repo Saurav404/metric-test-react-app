@@ -11,42 +11,42 @@ const perfume = new Perfume({
       case "navigationTiming":
         if (data && data.timeToFirstByte) {
           await sendMessage("navigationTiming", data);
-          console.log(data);
+          console.log("navigationTiming", data);
         }
         break;
       case "networkInformation":
         if (data && data.effectiveType) {
           await sendMessage("networkInformation", data);
-          console.log(data);
+          console.log("networkInformation",data);
         }
         break;
       case "storageEstimate":
         await sendMessage("storageEstimate", data);
-        console.log(data);
+        console.log("storageEstimate",data);
         break;
       case "TTFB":
         await sendMessage("timeToFirstByte", { duration: data });
-        console.log({ duration: data });
+        console.log("timeToFirstByte",{ duration: data });
         break;
       case "RT":
         await sendMessage("redirectTime", { duration: data });
-        console.log({ duration: data });
+        console.log("redirectTime",{ duration: data });
         break;
       case "FCP":
         await sendMessage("firstContentfulPaint", { duration: data });
-        console.log({ duration: data });
+        console.log("firstContentfulPaint",{ duration: data });
         break;
       case "FID":
         await sendMessage("firstInputDelay", { duration: data });
-        console.log({ duration: data });
+        console.log("firstInputDelay",{ duration: data });
         break;
       case "LCP":
         await sendMessage("largestContentfulPaint", { duration: data });
-        console.log({ duration: data });
+        console.log("largestContentfulPaint",{ duration: data });
         break;
       case "CLS":
         await sendMessage("cumulativeLayoutShift", { value: data });
-        console.log({ duration: data });
+        console.log("cumulativeLayoutShift",{ duration: data });
         break;
       case "INP":
         await sendMessage("interactionToNextPaint", { value: data });
@@ -54,21 +54,20 @@ const perfume = new Perfume({
         break;
       case "TBT":
         await sendMessage("totalBlockingTime", { duration: data });
-        console.log({ duration: data });
+        console.log("totalBlockingTime",{ duration: data });
         break;
       case "elPageTitle":
         await sendMessage("elementTimingPageTitle", { duration: data });
-        console.log({ duration: data });
+        console.log("elementTimingPageTitle",{ duration: data });
         break;
       default:
         await sendMessage(metricName, { duration: data });
-        console.log({ duration: data });
+        console.log(metricName,{ duration: data });
         break;
     }
   },
 });
 
-console.log(perfume)
 function App() {
   return (
     <div className="navbar">
